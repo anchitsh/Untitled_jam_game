@@ -14,6 +14,15 @@ public class charController : MonoBehaviour
     float position;
     float speed;
 
+    [Header("Grounded checker")]
+
+    public Transform isGroundedChecker;
+    public float checkGroundRadius;
+    public LayerMask groundLayer;
+    public float rememberGroundedFor;
+    float lastTimeGrounded;
+    bool isGrounded = false;
+
     [Header("Jump Settings")]
     public float jumpForce;
     public int defaultJumps = 1;
@@ -22,18 +31,11 @@ public class charController : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-    [Header("Grounded checker")]
-    bool isGrounded = false;
-    public Transform isGroundedChecker;
-    public float checkGroundRadius;
-    public LayerMask groundLayer;
-    public float rememberGroundedFor;
-    float lastTimeGrounded;
 
 
     [Header("Misc")]
-    private int buffercounter=0, coybuffer=0;
     public int buffermax = 10, coymax =10;
+    int buffercounter = 0, coybuffer = 0;
     bool bufferbool;
     bool midjump;
     Collider2D body;
